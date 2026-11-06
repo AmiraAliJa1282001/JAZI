@@ -1,0 +1,462 @@
+/* =========================
+   JAZI HERO
+   ========================= */
+
+.hero {
+  position: relative;
+
+  width: 100%;
+  min-height: calc(100vh - 86px);
+
+  display: flex;
+  align-items: center;
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  overflow: hidden;
+}
+
+
+/* =========================
+   DARK OVERLAY
+   ========================= */
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(18, 2, 2, 0.97) 0%,
+      rgba(18, 2, 2, 0.92) 20%,
+      rgba(18, 2, 2, 0.72) 40%,
+      rgba(18, 2, 2, 0.35) 65%,
+      rgba(18, 2, 2, 0.12) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(10, 1, 1, 0.45) 0%,
+      rgba(10, 1, 1, 0.05) 50%,
+      rgba(10, 1, 1, 0.25) 100%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================
+   HERO CONTENT
+   ========================= */
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+
+  width: min(90%, 1500px);
+  min-height: calc(100vh - 86px);
+
+  margin-inline: auto;
+
+  display: flex;
+  align-items: center;
+}
+
+
+/* =========================
+   LEFT CONTENT
+   ========================= */
+
+.hero-copy {
+  width: 52%;
+  max-width: 720px;
+
+  padding: 4rem 0;
+}
+
+
+/* =========================
+   EYEBROW
+   ========================= */
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+
+  gap: 1rem;
+
+  margin-bottom: 1.7rem;
+
+  color: var(--color-gold);
+
+  font-size: 0.72rem;
+  font-weight: 500;
+
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+}
+
+.hero-line {
+  display: inline-block;
+
+  width: 45px;
+  height: 1px;
+
+  background: var(--color-gold);
+}
+
+
+/* =========================
+   JAZI TITLE
+   ========================= */
+
+.hero-logo {
+  margin: 0;
+
+  color: var(--color-cream);
+
+  font-family: var(--font-heading);
+
+  font-size: clamp(6rem, 10vw, 10.5rem);
+  font-weight: 400;
+
+  line-height: 0.8;
+  letter-spacing: 0.12em;
+
+  text-shadow:
+    0 4px 30px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================
+   TAGLINE
+   ========================= */
+
+.hero-tagline {
+  margin-top: 2.4rem;
+  margin-bottom: 1.4rem;
+
+  color: var(--color-cream);
+
+  font-family: var(--font-body);
+
+  font-size: clamp(0.78rem, 1vw, 1rem);
+  font-weight: 500;
+
+  line-height: 1.5;
+
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+
+/* =========================
+   DESCRIPTION
+   ========================= */
+
+.hero-description {
+  max-width: 540px;
+
+  margin-bottom: 2.5rem;
+
+  color: #d4c8bb;
+
+  font-family: var(--font-heading);
+
+  font-size: 1.15rem;
+  font-weight: 400;
+
+  line-height: 1.45;
+}
+
+
+/* =========================
+   BUTTONS
+   ========================= */
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 1.3rem;
+}
+
+.hero-primary,
+.hero-secondary {
+  min-width: 175px;
+  height: 56px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 1.7rem;
+
+  font-family: var(--font-body);
+
+  font-size: 0.7rem;
+  font-weight: 600;
+
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+/* =========================
+   ORDER NOW
+   ========================= */
+
+.hero-primary {
+  gap: 0.7rem;
+
+  background: var(--color-gold);
+
+  border: 1px solid var(--color-gold);
+
+  color: var(--color-bg-dark);
+}
+
+.hero-primary svg {
+  flex-shrink: 0;
+
+  width: 16px;
+  height: 16px;
+
+  transition: transform 0.25s ease;
+}
+
+.hero-primary:hover {
+  background: var(--color-gold-light);
+
+  border-color: var(--color-gold-light);
+
+  transform: translateY(-2px);
+}
+
+.hero-primary:hover svg {
+  transform: translateX(3px);
+}
+
+
+/* =========================
+   VIEW MENU
+   ========================= */
+
+.hero-secondary {
+  position: static;
+
+  background: rgba(20, 3, 3, 0.3);
+
+  border: 1px solid var(--color-gold);
+
+  color: var(--color-cream);
+
+  backdrop-filter: blur(3px);
+}
+
+.hero-secondary::after {
+  display: none;
+}
+
+.hero-secondary:hover {
+  background: var(--color-gold);
+
+  color: var(--color-bg-dark);
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   SIGNATURE DISH
+   ========================= */
+
+.hero-signature {
+  position: absolute;
+
+  right: 4%;
+  bottom: 10%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  color: var(--color-cream);
+
+  text-shadow:
+    0 2px 15px rgba(0, 0, 0, 0.7);
+}
+
+.signature-name {
+  margin-bottom: 0.25rem;
+
+  font-family: var(--font-heading);
+
+  font-size: clamp(1.8rem, 2.5vw, 2.7rem);
+  font-style: italic;
+  font-weight: 400;
+
+  line-height: 1;
+}
+
+.signature-label {
+  color: var(--color-gold-light);
+
+  font-family: var(--font-body);
+
+  font-size: 0.62rem;
+  font-weight: 500;
+
+  letter-spacing: 0.35em;
+}
+
+
+/* =========================
+   TABLET
+   ========================= */
+
+@media (max-width: 1000px) {
+  .hero {
+    background-position: 60% center;
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(18, 2, 2, 0.96) 0%,
+        rgba(18, 2, 2, 0.85) 45%,
+        rgba(18, 2, 2, 0.35) 100%
+      ),
+      linear-gradient(
+        0deg,
+        rgba(10, 1, 1, 0.45),
+        rgba(10, 1, 1, 0.1)
+      );
+  }
+
+  .hero-copy {
+    width: 65%;
+  }
+
+  .hero-logo {
+    font-size: clamp(5rem, 13vw, 8rem);
+  }
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 700px) {
+  .hero {
+    min-height: calc(100svh - 70px);
+
+    align-items: flex-end;
+
+    background-position: 65% center;
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(
+        0deg,
+        rgba(18, 2, 2, 0.98) 0%,
+        rgba(18, 2, 2, 0.86) 35%,
+        rgba(18, 2, 2, 0.35) 70%,
+        rgba(18, 2, 2, 0.18) 100%
+      );
+  }
+
+  .hero-content {
+    width: 88%;
+    min-height: calc(100svh - 70px);
+
+    align-items: flex-end;
+  }
+
+  .hero-copy {
+    width: 100%;
+
+    padding: 5rem 0 3rem;
+  }
+
+  .hero-eyebrow {
+    margin-bottom: 1.3rem;
+
+    font-size: 0.58rem;
+
+    letter-spacing: 0.25em;
+  }
+
+  .hero-line {
+    width: 30px;
+  }
+
+  .hero-logo {
+    font-size: clamp(4.5rem, 25vw, 7rem);
+
+    letter-spacing: 0.08em;
+  }
+
+  .hero-tagline {
+    margin-top: 1.7rem;
+
+    font-size: 0.7rem;
+
+    letter-spacing: 0.18em;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+
+    line-height: 1.45;
+  }
+
+  .hero-description br {
+    display: none;
+  }
+
+  .hero-actions {
+    width: 100%;
+
+    gap: 0.8rem;
+  }
+
+  .hero-primary,
+  .hero-secondary {
+    flex: 1;
+
+    min-width: 0;
+    height: 52px;
+
+    padding: 0 1rem;
+
+    font-size: 0.62rem;
+  }
+
+  .hero-primary {
+    gap: 0.5rem;
+  }
+
+  .hero-primary svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .hero-signature {
+    display: none;
+  }
+}

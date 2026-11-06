@@ -1,0 +1,455 @@
+/* =========================
+   NEW ARRIVALS
+   ========================= */
+
+.new-arrivals {
+  padding: 2.8rem 0 4.5rem;
+
+  background:
+    radial-gradient(
+      circle at 80% 30%,
+      rgba(90, 25, 15, 0.18),
+      transparent 40%
+    ),
+    #180303;
+
+  border-bottom: 1px solid rgba(211, 176, 107, 0.15);
+}
+
+.new-arrivals-container {
+  width: min(84%, 1400px);
+  margin-inline: auto;
+}
+
+
+/* =========================
+   HEADER
+   ========================= */
+
+.new-arrivals-header {
+  margin-bottom: 1.6rem;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.new-arrivals-eyebrow {
+  display: block;
+
+  margin-bottom: 0.45rem;
+
+  color: #b86f4d;
+
+  font-size: 0.62rem;
+  font-weight: 600;
+
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+}
+
+.new-arrivals-header h2 {
+  margin: 0;
+
+  color: var(--color-cream);
+
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 4vw, 3.7rem);
+  font-weight: 500;
+
+  line-height: 1;
+}
+
+
+/* =========================
+   VIEW ALL NEW ITEMS
+   ========================= */
+
+.new-arrivals-view {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 0.8rem;
+
+  padding-bottom: 0.3rem;
+
+  color: var(--color-gold);
+
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+
+  transition: color 0.25s ease;
+}
+
+.new-arrivals-arrow {
+  width: 17px;
+  height: 17px;
+
+  flex-shrink: 0;
+
+  transition: transform 0.25s ease;
+}
+
+.new-arrivals-view:hover {
+  color: var(--color-gold-light);
+}
+
+.new-arrivals-view:hover .new-arrivals-arrow {
+  transform: translateX(5px);
+}
+
+
+/* =========================
+   GRID
+   ========================= */
+
+.new-arrivals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 1.2rem;
+}
+
+
+/* =========================
+   CARD
+   ========================= */
+
+.new-arrival-card {
+  min-width: 0;
+
+  background: #240606;
+
+  border: 1px solid rgba(211, 176, 107, 0.3);
+  border-radius: 8px;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.new-arrival-card:hover {
+  transform: translateY(-3px);
+
+  border-color: rgba(211, 176, 107, 0.55);
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================
+   IMAGE
+   ========================= */
+
+.new-arrival-image {
+  position: relative;
+
+  width: 100%;
+  height: 190px;
+
+  overflow: hidden;
+
+  background: var(--color-surface);
+}
+
+.new-arrival-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 0.5s ease;
+}
+
+.new-arrival-card:hover
+.new-arrival-image img {
+  transform: scale(1.04);
+}
+
+
+/* =========================
+   NEW BADGE
+   ========================= */
+
+.new-arrival-badge {
+  position: absolute;
+
+  top: 14px;
+  left: 14px;
+
+  padding: 0.4rem 0.7rem;
+
+  background: var(--color-gold);
+
+  color: var(--color-bg-dark);
+
+  font-size: 0.55rem;
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+}
+
+
+/* =========================
+   PRODUCT INFO
+   ========================= */
+
+.new-arrival-info {
+  padding: 0.9rem 1rem 1rem;
+}
+
+.new-arrival-info h3 {
+  margin-bottom: 0.3rem;
+
+  color: var(--color-cream);
+
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 500;
+
+  line-height: 1.1;
+}
+
+.new-arrival-info p {
+  max-width: 90%;
+  min-height: 42px;
+
+  color: var(--color-muted);
+
+  font-size: 0.72rem;
+  font-weight: 300;
+
+  line-height: 1.4;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+}
+
+
+/* =========================
+   PRICE + ADD
+   ========================= */
+
+.new-arrival-bottom {
+  margin-top: 0.9rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.new-arrival-price {
+  color: var(--color-cream);
+
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 500;
+}
+
+
+/* =========================
+   ADD BUTTON
+   ========================= */
+
+.new-arrival-add {
+  width: 44px;
+  height: 44px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  background: rgba(211, 176, 107, 0.06);
+
+  border: 1px solid var(--color-gold);
+  border-radius: 50%;
+
+  color: var(--color-gold);
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.new-arrival-add svg {
+  width: 17px;
+  height: 17px;
+
+  flex-shrink: 0;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+/* =========================
+   ADD BUTTON HOVER
+   ========================= */
+
+.new-arrival-add:hover:not(:disabled) {
+  background: var(--color-gold);
+
+  color: var(--color-bg-dark);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.new-arrival-add:hover:not(:disabled) svg {
+  transform: scale(1.08);
+}
+
+
+/* =========================
+   CLICK EFFECT
+   ========================= */
+
+.new-arrival-add:active:not(:disabled) {
+  transform: scale(0.94);
+}
+
+
+/* =========================
+   ADDED STATE
+   ========================= */
+
+.new-arrival-add.added {
+  background: var(--color-gold);
+
+  border-color: var(--color-gold);
+
+  color: #180303;
+
+  transform: scale(1.08);
+}
+
+.new-arrival-add.added svg {
+  animation:
+    newArrivalCheckIn
+    0.25s ease;
+}
+
+
+/* =========================
+   DISABLED
+   ========================= */
+
+.new-arrival-add:disabled {
+  cursor: not-allowed;
+
+  opacity: 0.4;
+
+  transform: none;
+
+  box-shadow: none;
+}
+
+
+/* =========================
+   KEYBOARD ACCESSIBILITY
+   ========================= */
+
+.new-arrival-add:focus-visible {
+  outline:
+    2px solid
+    var(--color-gold-light);
+
+  outline-offset: 3px;
+}
+
+
+/* =========================
+   CHECK ANIMATION
+   ========================= */
+
+@keyframes newArrivalCheckIn {
+  0% {
+    opacity: 0;
+
+    transform: scale(0.4);
+  }
+
+  70% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    opacity: 1;
+
+    transform: scale(1);
+  }
+}
+
+
+/* =========================
+   TABLET
+   ========================= */
+
+@media (max-width: 950px) {
+  .new-arrivals-container {
+    width: 88%;
+  }
+
+  .new-arrivals-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 650px) {
+  .new-arrivals {
+    padding: 3.5rem 0;
+  }
+
+  .new-arrivals-header {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 1rem;
+  }
+
+  .new-arrivals-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .new-arrival-image {
+    height: 210px;
+  }
+
+  .new-arrival-info p {
+    min-height: auto;
+  }
+
+  .new-arrival-add {
+    width: 42px;
+    height: 42px;
+  }
+
+  .new-arrival-add svg {
+    width: 16px;
+    height: 16px;
+  }
+}

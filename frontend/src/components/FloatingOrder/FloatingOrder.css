@@ -1,0 +1,302 @@
+/* =========================================================
+   FLOATING YOUR ORDER
+   ========================================================= */
+
+.floating-order-wrapper {
+  position: fixed;
+
+  left: 50%;
+  bottom: 24px;
+
+  z-index: 1500;
+
+  width: min(92%, 620px);
+
+  transform: translateX(-50%);
+
+  animation: floatingOrderIn 0.35s ease;
+}
+
+.floating-order {
+  position: relative;
+
+  width: 100%;
+  min-height: 68px;
+
+  padding: 0.75rem 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      110deg,
+      #d3b06b,
+      #e2c88f
+    );
+
+  border: 1px solid #e6ce9c;
+
+  box-shadow:
+    0 16px 45px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(211, 176, 107, 0.08);
+
+  color: #1a0303;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.floating-order::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 1px;
+
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.floating-order:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+
+/* =========================================================
+   LEFT
+   ========================================================= */
+
+.floating-order-left {
+  display: flex;
+  align-items: center;
+
+  gap: 0.85rem;
+}
+
+.floating-order-count {
+  width: 40px;
+  height: 40px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #220606;
+
+  border-radius: 50%;
+
+  color: var(--color-gold-light);
+
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.floating-order-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.floating-order-text > span {
+  font-size: 0.62rem;
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+}
+
+.floating-order-text small {
+  margin-top: 0.1rem;
+
+  color: rgba(26, 3, 3, 0.65);
+
+  font-size: 0.55rem;
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   RIGHT
+   ========================================================= */
+
+.floating-order-right {
+  display: flex;
+  align-items: center;
+
+  gap: 1.2rem;
+}
+
+.floating-order-total {
+  display: flex;
+  align-items: baseline;
+
+  gap: 0.3rem;
+}
+
+.floating-order-total > span {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 600;
+
+  line-height: 1;
+}
+
+.floating-order-total small {
+  font-size: 0.5rem;
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+}
+
+
+/* =========================================================
+   ARROW ICON
+   ========================================================= */
+
+.floating-order-arrow {
+  width: 35px;
+  height: 35px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(26, 3, 3, 0.35);
+  border-radius: 50%;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.floating-order-arrow svg {
+  width: 17px;
+  height: 17px;
+
+  transition: transform 0.25s ease;
+}
+
+.floating-order:hover .floating-order-arrow {
+  background: #220606;
+
+  border-color: #220606;
+
+  color: var(--color-gold-light);
+
+  transform: translateX(2px);
+}
+
+.floating-order:hover .floating-order-arrow svg {
+  transform: translateX(1px);
+}
+
+
+/* =========================================================
+   ANIMATION
+   ========================================================= */
+
+@keyframes floatingOrderIn {
+  from {
+    opacity: 0;
+
+    transform:
+      translateX(-50%)
+      translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateX(-50%)
+      translateY(0);
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .floating-order-wrapper {
+    width: calc(100% - 24px);
+
+    bottom: 12px;
+  }
+
+  .floating-order {
+    min-height: 62px;
+
+    padding:
+      0.65rem
+      0.8rem;
+  }
+
+  .floating-order-count {
+    width: 36px;
+    height: 36px;
+
+    font-size: 0.9rem;
+  }
+
+  .floating-order-left {
+    gap: 0.65rem;
+  }
+
+  .floating-order-right {
+    gap: 0.7rem;
+  }
+
+  .floating-order-total > span {
+    font-size: 1.25rem;
+  }
+
+  .floating-order-arrow {
+    width: 32px;
+    height: 32px;
+  }
+
+  .floating-order-arrow svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 360px) {
+  .floating-order-text small {
+    display: none;
+  }
+
+  .floating-order-text > span {
+    font-size: 0.55rem;
+  }
+
+  .floating-order-arrow {
+    display: none;
+  }
+}

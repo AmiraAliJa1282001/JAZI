@@ -1,0 +1,658 @@
+/* =========================================================
+   JAZI — EMPLOYEE ORDER HISTORY
+   ========================================================= */
+
+/* =========================
+   SUMMARY STATS
+   ========================= */
+
+.history-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.history-stats article {
+  min-width: 0;
+  min-height: 94px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #fffdf9;
+  border: 1px solid rgba(75, 43, 35, 0.08);
+  border-radius: 16px;
+  box-shadow:
+    0 2px 8px rgba(54, 25, 20, 0.02),
+    0 8px 24px rgba(54, 25, 20, 0.025);
+}
+
+.history-stats article > span {
+  margin-bottom: 7px;
+  color: #8a7770;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.history-stats article > strong {
+  color: #421c1f;
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.history-stats article.completed {
+  border-top: 3px solid #5f9672;
+}
+
+.history-stats article.cancelled {
+  border-top: 3px solid #b45d5d;
+}
+
+.history-stats article.revenue {
+  border-top: 3px solid #b28a4c;
+}
+
+.history-stats article.revenue strong {
+  color: #694b22;
+}
+
+.history-stats article small {
+  margin-left: 5px;
+  color: #9c877b;
+  font-family: var(--font-body);
+  font-size: 0.58rem;
+  font-weight: 700;
+}
+
+
+/* =========================
+   TOOLBAR
+   ========================= */
+
+.history-toolbar {
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.history-status-filters {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.history-status-filters button {
+  min-height: 34px;
+  padding: 7px 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  color: #76635d;
+  background: #fffdf9;
+  border: 1px solid rgba(75, 43, 35, 0.1);
+  border-radius: 999px;
+
+  font-size: 0.66rem;
+  font-weight: 650;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.history-status-filters button:hover {
+  color: #5c171b;
+  border-color: rgba(92, 23, 27, 0.28);
+}
+
+.history-status-filters button:active {
+  transform: scale(0.97);
+}
+
+.history-status-filters button.active {
+  color: #fff;
+  background: #5c171b;
+  border-color: #5c171b;
+}
+
+
+/* =========================
+   TABLE WRAPPER
+   ========================= */
+
+.history-table-wrapper {
+  overflow: hidden;
+  background: #fffdf9;
+  border: 1px solid rgba(75, 43, 35, 0.08);
+  border-radius: 18px;
+  box-shadow:
+    0 2px 8px rgba(54, 25, 20, 0.02),
+    0 10px 30px rgba(54, 25, 20, 0.035);
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.history-table thead {
+  background: #faf6f0;
+}
+
+.history-table th {
+  padding: 13px 16px;
+  color: #9a867d;
+  border-bottom: 1px solid rgba(75, 43, 35, 0.08);
+
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.history-table td {
+  padding: 15px 16px;
+  color: #66534d;
+  border-bottom: 1px solid rgba(75, 43, 35, 0.065);
+
+  font-size: 0.72rem;
+  vertical-align: middle;
+}
+
+.history-table tbody tr {
+  transition: background 0.18s ease;
+}
+
+.history-table tbody tr:hover {
+  background: #fdf9f4;
+}
+
+.history-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.history-table td > strong {
+  display: block;
+  color: #432023;
+  font-weight: 650;
+}
+
+.history-table td > span:not(.history-status) {
+  display: block;
+  margin-top: 3px;
+  color: #9a8780;
+  font-size: 0.62rem;
+}
+
+
+/* =========================
+   STATUS BADGES
+   ========================= */
+
+.history-status {
+  width: fit-content;
+  padding: 5px 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+
+  border-radius: 999px;
+
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+}
+
+.history-status.completed {
+  color: #397052;
+  background: #e9f3ec;
+  border: 1px solid rgba(68, 132, 93, 0.16);
+}
+
+.history-status.cancelled {
+  color: #9b4646;
+  background: #f9e9e8;
+  border: 1px solid rgba(174, 73, 73, 0.15);
+}
+
+
+/* =========================
+   VIEW BUTTON
+   ========================= */
+
+.history-view-button {
+  padding: 6px 11px;
+  color: #5c171b;
+  background: transparent;
+  border: 1px solid rgba(92, 23, 27, 0.18);
+  border-radius: 8px;
+
+  font-size: 0.61rem;
+  font-weight: 700;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.history-view-button:hover {
+  color: #fff;
+  background: #5c171b;
+  border-color: #5c171b;
+}
+
+
+/* =========================================================
+   ORDER DETAILS OVERLAY
+   ========================================================= */
+
+.history-details-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(31, 12, 13, 0.28);
+  border: 0;
+
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+
+/* =========================
+   DETAILS PANEL
+   ========================= */
+
+.history-details {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 100;
+
+  width: min(500px, 100%);
+  height: 100dvh;
+  padding: 28px;
+
+  overflow-y: auto;
+
+  color: #4b2929;
+  background: #fffdf9;
+  border-left: 1px solid rgba(75, 43, 35, 0.08);
+
+  box-shadow:
+    -18px 0 55px rgba(42, 17, 18, 0.13);
+
+  animation: historyPanelIn 0.25s ease;
+}
+
+@keyframes historyPanelIn {
+  from {
+    transform: translateX(35px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+/* =========================
+   DETAILS HEADER
+   ========================= */
+
+.history-details-header {
+  margin-bottom: 16px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.history-details-header span {
+  display: block;
+  margin-bottom: 4px;
+
+  color: #aa8a68;
+  font-size: 0.57rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.history-details-header h2 {
+  color: #451c1f;
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  line-height: 1.1;
+}
+
+.history-details-header button {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+
+  display: grid;
+  place-items: center;
+
+  color: #765e59;
+  background: #f7f0e9;
+  border: 0;
+  border-radius: 50%;
+
+  font-size: 1.3rem;
+  line-height: 1;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.history-details-header button:hover {
+  color: #fff;
+  background: #5c171b;
+}
+
+
+/* =========================
+   DETAILS SECTIONS
+   ========================= */
+
+.history-details-section {
+  margin-top: 22px;
+  padding-top: 18px;
+
+  border-top: 1px solid rgba(75, 43, 35, 0.08);
+}
+
+.history-details-section > span {
+  display: block;
+  margin-bottom: 8px;
+
+  color: #a28b81;
+  font-size: 0.57rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.history-details-section > strong {
+  display: block;
+
+  color: #462326;
+  font-size: 0.8rem;
+}
+
+.history-details-section > p {
+  margin-top: 3px;
+
+  color: #87736c;
+  font-size: 0.7rem;
+  line-height: 1.6;
+}
+
+
+/* =========================
+   DETAILS ITEMS
+   ========================= */
+
+.history-details-items {
+  display: flex;
+  flex-direction: column;
+}
+
+.history-details-item {
+  padding: 11px 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+
+  border-bottom: 1px solid rgba(75, 43, 35, 0.065);
+}
+
+.history-details-item:last-child {
+  border-bottom: 0;
+}
+
+.history-details-item-main {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.history-details-item-main img,
+.history-item-placeholder {
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+
+  border-radius: 10px;
+
+  object-fit: cover;
+}
+
+.history-item-placeholder {
+  display: grid;
+  place-items: center;
+
+  color: #704044;
+  background: #f1e5da;
+
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.history-details-item-main > div {
+  min-width: 0;
+}
+
+.history-details-item-main strong {
+  display: block;
+
+  overflow: hidden;
+
+  color: #492326;
+  font-size: 0.72rem;
+  font-weight: 650;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.history-details-item-main span {
+  display: block;
+  margin-top: 3px;
+
+  color: #98827a;
+  font-size: 0.61rem;
+}
+
+.history-details-item > strong {
+  flex: 0 0 auto;
+
+  color: #572025;
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+}
+
+
+/* =========================
+   DETAILS TOTAL
+   ========================= */
+
+.history-details-total {
+  margin-top: 22px;
+  padding: 18px 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-top: 1px solid rgba(75, 43, 35, 0.1);
+  border-bottom: 1px solid rgba(75, 43, 35, 0.1);
+}
+
+.history-details-total span {
+  color: #76625c;
+  font-size: 0.7rem;
+  font-weight: 650;
+}
+
+.history-details-total strong {
+  color: #54191d;
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+}
+
+
+/* =========================
+   CLOSE BUTTON
+   ========================= */
+
+.history-close-button {
+  width: 100%;
+  min-height: 43px;
+  margin-top: 20px;
+
+  color: #fff;
+  background: #5c171b;
+  border: 1px solid #5c171b;
+  border-radius: 10px;
+
+  font-size: 0.68rem;
+  font-weight: 700;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.history-close-button:hover {
+  background: #481014;
+}
+
+.history-close-button:active {
+  transform: scale(0.99);
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .history-stats {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .history-table-wrapper {
+    overflow-x: auto;
+  }
+
+  .history-table {
+    min-width: 820px;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — SMALL TABLET
+   ========================================================= */
+
+@media (max-width: 800px) {
+  .history-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .history-status-filters {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .history-status-filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .history-status-filters button {
+    flex: 0 0 auto;
+  }
+
+  .history-toolbar .employee-search {
+    width: 100%;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .history-stats {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
+
+  .history-stats article {
+    min-height: 80px;
+    padding: 14px;
+  }
+
+  .history-stats article > strong {
+    font-size: 1.45rem;
+  }
+
+  .history-details {
+    width: 100%;
+    padding:
+      22px
+      18px
+      calc(28px + env(safe-area-inset-bottom));
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 390px) {
+  .history-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .history-stats article {
+    padding: 12px;
+  }
+
+  .history-stats article > span {
+    font-size: 0.58rem;
+  }
+
+  .history-stats article > strong {
+    font-size: 1.3rem;
+  }
+}

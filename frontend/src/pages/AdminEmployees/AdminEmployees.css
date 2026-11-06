@@ -1,0 +1,78 @@
+
+@import "../AdminCategories/AdminCategories.css";
+
+/* Employee Management */
+
+.ae-page {
+  min-height: 100vh;
+  background: #fcf8f2;
+}
+
+.ae-employee-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 170px;
+}
+
+.ae-employee-cell strong {
+  color: #4d3028;
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.ae-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ae-actions .ac-delete {
+  margin-left: 0;
+}
+
+.ae-actions button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Employee Editor */
+
+.ae-field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.ae-password-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.ae-password-wrap svg {
+  position: absolute;
+  left: 13px;
+  color: #a18b7d;
+  pointer-events: none;
+}
+
+.ae-password-wrap input {
+  padding-left: 40px;
+}
+
+/* Responsive */
+
+@media (max-width: 700px) {
+  .ae-field-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ae-actions {
+    gap: 5px;
+  }
+
+  .ae-employee-cell {
+    min-width: 140px;
+  }
+}

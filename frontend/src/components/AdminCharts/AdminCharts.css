@@ -1,0 +1,421 @@
+
+.admin-chart-card {
+  min-width: 0;
+  padding: 25px;
+  background: rgba(255, 253, 249, 0.96);
+  border: 1px solid #ecdfce;
+  border-radius: 17px;
+  box-shadow: 0 8px 25px rgba(76, 33, 17, 0.045);
+}
+
+.admin-chart-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 25px;
+}
+
+.admin-chart-eyebrow {
+  display: block;
+  margin-bottom: 7px;
+  color: #b08b4b;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.admin-chart-header h2 {
+  margin: 0;
+  color: #550d13;
+  font-family: var(--font-heading);
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.admin-chart-header p {
+  margin-top: 8px;
+  color: #97857a;
+  font-size: 12px;
+}
+
+.admin-chart-switch {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 4px;
+  background: #f5ede2;
+  border: 1px solid #ecdfce;
+  border-radius: 9px;
+}
+
+.admin-chart-switch button {
+  padding: 7px 13px;
+  color: #806e63;
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  font-size: 11px;
+  transition: 180ms ease;
+}
+
+.admin-chart-switch button.active {
+  color: #fffaf3;
+  background: #650d17;
+}
+
+.admin-chart-content {
+  min-height: 280px;
+}
+
+.admin-chart-graph {
+  width: 100%;
+  height: 280px;
+  min-width: 0;
+}
+
+.admin-chart-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 280px;
+  color: #97857a;
+  text-align: center;
+  font-size: 13px;
+}
+
+.admin-chart-empty strong {
+  color: #550d13;
+  font-family: var(--font-heading);
+  font-size: 27px;
+  font-weight: 600;
+}
+
+.admin-status-chart-content {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  min-height: 280px;
+}
+
+.admin-donut-container {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  height: 250px;
+}
+
+.admin-donut-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.admin-donut-center strong {
+  color: #550d13;
+  font-family: var(--font-heading);
+  font-size: 42px;
+  line-height: 1;
+}
+
+.admin-donut-center span {
+  margin-top: 7px;
+  color: #97857a;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  white-space: nowrap;
+}
+
+.admin-status-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  width: 145px;
+  flex-shrink: 0;
+}
+
+.admin-status-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #75665e;
+  font-size: 11px;
+}
+
+.admin-status-dot {
+  width: 9px;
+  height: 9px;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.admin-status-name {
+  flex: 1;
+}
+
+.admin-status-legend-item strong {
+  color: #550d13;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.admin-chart-switch button:focus-visible {
+  outline: 2px solid #b88b48;
+  outline-offset: 2px;
+}
+
+@media (max-width: 1350px) {
+  .admin-status-chart-content {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .admin-donut-container {
+    width: 100%;
+    flex: none;
+  }
+
+  .admin-status-legend {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  .admin-chart-card {
+    padding: 18px;
+  }
+
+  .admin-chart-header h2 {
+    font-size: 26px;
+  }
+
+  .admin-chart-graph {
+    height: 250px;
+  }
+
+  .admin-donut-container {
+    height: 220px;
+  }
+}
+
+
+
+/* RECENT ORDERS */
+
+.admin-orders-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.admin-orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.admin-orders-table th {
+  padding: 13px 12px;
+  color: #a48e7c;
+  background: #faf5ed;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.admin-orders-table td {
+  padding: 17px 12px;
+  color: #6d5c53;
+  border-bottom: 1px solid #f0e6d9;
+  font-size: 12px;
+}
+
+.admin-orders-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-order-number {
+  color: #650d17 !important;
+  font-weight: 700;
+}
+
+.admin-order-amount {
+  color: #550d13 !important;
+  font-weight: 600;
+}
+
+.admin-order-amount span {
+  color: #9b8a7c;
+  font-size: 10px;
+}
+
+.admin-order-date {
+  color: #99887c !important;
+}
+
+.admin-order-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.admin-order-status.status-pending {
+  color: #a15b21;
+  background: #fff0db;
+}
+
+.admin-order-status.status-confirmed {
+  color: #856019;
+  background: #fbf1d3;
+}
+
+.admin-order-status.status-preparing {
+  color: #466f9b;
+  background: #e8f0fb;
+}
+
+.admin-order-status.status-ready {
+  color: #2c8054;
+  background: #e4f5e9;
+}
+
+.admin-order-status.status-completed {
+  color: #597167;
+  background: #eaf0ec;
+}
+
+.admin-order-status.status-cancelled {
+  color: #a34848;
+  background: #fae8e8;
+}
+
+/* BEST SELLING ITEMS */
+
+.admin-bestsellers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding-top: 7px;
+}
+
+.admin-bestseller-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.admin-bestseller-rank {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  color: #b08b4b;
+  background: #f8f0e4;
+  border: 1px solid #e9dcc7;
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.admin-bestseller-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.admin-bestseller-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.admin-bestseller-top strong {
+  overflow: hidden;
+  color: #550d13;
+  font-size: 12px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-bestseller-top span {
+  flex-shrink: 0;
+  color: #97857a;
+  font-size: 11px;
+}
+
+.admin-bestseller-track {
+  height: 6px;
+  overflow: hidden;
+  background: #f0e7da;
+  border-radius: 20px;
+}
+
+.admin-bestseller-fill {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    #650d17,
+    #b08b4b
+  );
+  border-radius: inherit;
+  transition: width 300ms ease;
+}
+
+@media (max-width: 520px) {
+  .admin-orders-table th,
+  .admin-orders-table td {
+    padding: 12px 10px;
+  }
+
+  .admin-bestsellers-list {
+    gap: 20px;
+  }
+}
+/* FIX BEST SELLER PRODUCT NAMES */
+
+.admin-bestseller-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.admin-bestseller-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.admin-bestseller-top strong {
+  display: block;
+  flex: 1;
+  min-width: 0;
+  overflow: visible;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-overflow: clip;
+  color: #550d13;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.admin-bestseller-top span {
+  flex-shrink: 0;
+}

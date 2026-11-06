@@ -1,0 +1,161 @@
+.menu-hero {
+  position: relative;
+
+  min-height: 290px;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  border-bottom: 1px solid rgba(211, 176, 107, 0.18);
+}
+
+.menu-hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(25, 2, 2, 0.98) 0%,
+      rgba(25, 2, 2, 0.92) 25%,
+      rgba(25, 2, 2, 0.65) 48%,
+      rgba(25, 2, 2, 0.18) 75%,
+      rgba(10, 1, 1, 0.08) 100%
+    );
+
+  pointer-events: none;
+}
+
+.menu-hero-container {
+  position: relative;
+  z-index: 2;
+
+  width: min(84%, 1400px);
+
+  margin-inline: auto;
+}
+
+.menu-hero-content {
+  max-width: 600px;
+}
+
+.menu-hero-eyebrow {
+  display: block;
+
+  margin-bottom: 1.2rem;
+
+  color: var(--color-gold);
+
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  font-weight: 600;
+
+  letter-spacing: 0.42em;
+
+  text-transform: uppercase;
+}
+
+.menu-hero h1 {
+  margin: 0;
+
+  color: var(--color-cream);
+
+  font-family: var(--font-heading);
+  font-size: clamp(5rem, 9vw, 8rem);
+  font-weight: 400;
+
+  line-height: 0.8;
+
+  letter-spacing: 0.04em;
+}
+
+.menu-hero-decoration {
+  width: 205px;
+
+  margin: 1.7rem 0 1.1rem;
+
+  display: flex;
+  align-items: center;
+
+  gap: 0.8rem;
+}
+
+.menu-hero-decoration span {
+  height: 1px;
+
+  flex: 1;
+
+  background: rgba(211, 176, 107, 0.55);
+}
+
+.menu-hero-decoration i {
+  width: 6px;
+  height: 6px;
+
+  flex-shrink: 0;
+
+  background: var(--color-gold);
+
+  transform: rotate(45deg);
+}
+
+.menu-hero p {
+  margin: 0;
+
+  color: #c9b9a8;
+
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+
+  letter-spacing: 0.02em;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+  .menu-hero {
+    min-height: 240px;
+
+    background:
+      linear-gradient(
+        90deg,
+        rgba(28, 3, 3, 0.97),
+        rgba(28, 3, 3, 0.72)
+      ),
+      #210404;
+  }
+
+  .menu-hero-container {
+    width: 88%;
+  }
+
+  .menu-hero-eyebrow {
+    margin-bottom: 1rem;
+
+    font-size: 0.52rem;
+    letter-spacing: 0.3em;
+  }
+
+  .menu-hero h1 {
+    font-size: 4.3rem;
+  }
+
+  .menu-hero-decoration {
+    width: 150px;
+
+    margin: 1.3rem 0 0.9rem;
+  }
+
+  .menu-hero p {
+    font-size: 0.78rem;
+  }
+}

@@ -1,0 +1,448 @@
+/* =========================
+   BEST SELLERS SECTION
+   ========================= */
+
+.best-sellers {
+  padding: 2.8rem 0 3.5rem;
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(80, 15, 15, 0.22),
+      transparent 40%
+    ),
+    #180303;
+
+  border-top: 1px solid rgba(211, 176, 107, 0.15);
+  border-bottom: 1px solid rgba(211, 176, 107, 0.15);
+}
+
+.best-sellers-container {
+  width: min(84%, 1400px);
+  margin-inline: auto;
+}
+
+
+/* =========================
+   HEADER
+   ========================= */
+
+.best-sellers-header {
+  margin-bottom: 1.6rem;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.best-sellers-eyebrow {
+  display: block;
+
+  margin-bottom: 0.45rem;
+
+  color: #b86f4d;
+
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  font-weight: 600;
+
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+}
+
+.best-sellers-header h2 {
+  margin: 0;
+
+  color: var(--color-cream);
+
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 4vw, 3.7rem);
+  font-weight: 500;
+
+  line-height: 1;
+}
+
+
+/* =========================
+   VIEW FULL MENU
+   ========================= */
+
+.best-sellers-view {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 0.8rem;
+
+  padding-bottom: 0.3rem;
+
+  color: var(--color-gold);
+
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+
+  transition: color 0.25s ease;
+}
+
+.view-arrow {
+  width: 17px;
+  height: 17px;
+
+  flex-shrink: 0;
+
+  transition: transform 0.25s ease;
+}
+
+.best-sellers-view:hover {
+  color: var(--color-gold-light);
+}
+
+.best-sellers-view:hover .view-arrow {
+  transform: translateX(5px);
+}
+
+
+/* =========================
+   PRODUCTS GRID
+   ========================= */
+
+.best-sellers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 1.2rem;
+}
+
+
+/* =========================
+   PRODUCT CARD
+   ========================= */
+
+.best-seller-card {
+  position: relative;
+
+  min-width: 0;
+
+  background: #240606;
+
+  border: 1px solid rgba(211, 176, 107, 0.3);
+  border-radius: 8px;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.best-seller-card:hover {
+  transform: translateY(-3px);
+
+  border-color: rgba(211, 176, 107, 0.55);
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================
+   PRODUCT IMAGE
+   ========================= */
+
+.best-seller-image {
+  width: 100%;
+  height: 190px;
+
+  overflow: hidden;
+
+  background: var(--color-surface);
+}
+
+.best-seller-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 0.5s ease;
+}
+
+.best-seller-card:hover
+.best-seller-image img {
+  transform: scale(1.04);
+}
+
+
+/* =========================
+   PRODUCT INFO
+   ========================= */
+
+.best-seller-info {
+  padding: 0.9rem 1rem 1rem;
+}
+
+.best-seller-info h3 {
+  margin: 0 0 0.3rem;
+
+  color: var(--color-cream);
+
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 500;
+
+  line-height: 1.1;
+}
+
+.best-seller-info p {
+  max-width: 90%;
+  min-height: 42px;
+
+  margin: 0;
+
+  color: var(--color-muted);
+
+  font-size: 0.72rem;
+  font-weight: 300;
+
+  line-height: 1.4;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+}
+
+
+/* =========================
+   BOTTOM ROW
+   ========================= */
+
+.best-seller-bottom {
+  margin-top: 0.9rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* =========================
+   PRICE
+   ========================= */
+
+.best-seller-price {
+  color: var(--color-cream);
+
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 500;
+
+  letter-spacing: 0.02em;
+}
+
+
+/* =========================
+   ADD BUTTON
+   ========================= */
+
+.best-seller-add {
+  position: relative;
+
+  width: 44px;
+  height: 44px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  background: rgba(211, 176, 107, 0.06);
+
+  border: 1px solid var(--color-gold);
+  border-radius: 50%;
+
+  color: var(--color-gold);
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.best-seller-add svg {
+  width: 17px;
+  height: 17px;
+
+  flex-shrink: 0;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+/* =========================
+   ADD BUTTON HOVER
+   ========================= */
+
+.best-seller-add:hover:not(:disabled) {
+  background: var(--color-gold);
+
+  color: var(--color-bg-dark);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.25),
+    0 0 18px rgba(211, 176, 107, 0.15);
+}
+
+.best-seller-add:hover:not(:disabled) svg {
+  transform: scale(1.08);
+}
+
+
+/* =========================
+   CLICK EFFECT
+   ========================= */
+
+.best-seller-add:active:not(:disabled) {
+  transform:
+    translateY(0)
+    scale(0.94);
+}
+
+
+/* =========================
+   ADDED STATE
+   ========================= */
+
+.best-seller-add.added {
+  background: var(--color-gold);
+
+  border-color: var(--color-gold);
+
+  color: #180303;
+
+  transform: scale(1.08);
+}
+
+.best-seller-add.added svg {
+  animation:
+    bestSellerCheckIn
+    0.25s ease;
+}
+
+
+/* =========================
+   DISABLED
+   ========================= */
+
+.best-seller-add:disabled {
+  cursor: not-allowed;
+
+  opacity: 0.4;
+
+  transform: none;
+
+  box-shadow: none;
+}
+
+
+/* =========================
+   KEYBOARD ACCESSIBILITY
+   ========================= */
+
+.best-seller-add:focus-visible {
+  outline:
+    2px solid
+    var(--color-gold-light);
+
+  outline-offset: 3px;
+}
+
+
+/* =========================
+   CHECK ANIMATION
+   ========================= */
+
+@keyframes bestSellerCheckIn {
+  0% {
+    opacity: 0;
+
+    transform: scale(0.4);
+  }
+
+  70% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    opacity: 1;
+
+    transform: scale(1);
+  }
+}
+
+
+/* =========================
+   TABLET
+   ========================= */
+
+@media (max-width: 950px) {
+  .best-sellers-container {
+    width: 88%;
+  }
+
+  .best-sellers-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 650px) {
+  .best-sellers {
+    padding: 3.5rem 0;
+  }
+
+  .best-sellers-header {
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 1rem;
+  }
+
+  .best-sellers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .best-seller-image {
+    height: 210px;
+  }
+
+  .best-seller-info p {
+    min-height: auto;
+  }
+
+  .best-seller-add {
+    width: 42px;
+    height: 42px;
+  }
+
+  .best-seller-add svg {
+    width: 16px;
+    height: 16px;
+  }
+}

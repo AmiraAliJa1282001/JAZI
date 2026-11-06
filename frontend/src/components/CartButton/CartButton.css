@@ -1,0 +1,60 @@
+.cart-button {
+  position: relative;
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  background: transparent;
+  border: none;
+
+  color: var(--color-cream);
+
+  cursor: pointer;
+}
+
+.cart-button svg {
+  width: 20px;
+  height: 20px;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.cart-button:hover svg {
+  color: var(--color-gold);
+  transform: translateY(-1px);
+}
+
+.cart-button-count {
+  position: absolute;
+
+  top: 0;
+  right: 0;
+
+  min-width: 16px;
+  height: 16px;
+
+  padding: 0 4px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--color-gold);
+  border-radius: 20px;
+
+  color: #180303;
+
+  font-size: 0.5rem;
+  font-weight: 700;
+  line-height: 1;
+
+  pointer-events: none;
+}

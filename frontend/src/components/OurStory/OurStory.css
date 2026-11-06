@@ -1,0 +1,272 @@
+/* =========================
+   OUR STORY
+========================= */
+
+.our-story {
+  position: relative;
+
+  padding: 5.5rem 0 6rem;
+
+  background:
+    radial-gradient(
+      circle at 15% 40%,
+      rgba(80, 15, 15, 0.35),
+      transparent 45%
+    ),
+    #1a0404;
+
+  border-top: 1px solid rgba(211, 176, 107, 0.12);
+  border-bottom: 1px solid rgba(211, 176, 107, 0.15);
+
+  overflow: hidden;
+}
+
+.our-story-container {
+  width: min(84%, 1400px);
+  margin-inline: auto;
+
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+
+  gap: 6rem;
+  align-items: center;
+}
+
+
+/* =========================
+   LEFT CONTENT
+========================= */
+
+.our-story-content {
+  position: relative;
+
+  max-width: 560px;
+}
+
+.our-story-top-line {
+  width: 100%;
+  height: 1px;
+
+  margin-bottom: 2rem;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-gold),
+    rgba(211, 176, 107, 0.08)
+  );
+}
+
+.our-story-eyebrow {
+  display: block;
+
+  margin-bottom: 1.5rem;
+
+  color: #b86f4d;
+
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 600;
+
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+}
+
+.our-story-content h2 {
+  margin: 0;
+
+  color: var(--color-cream);
+
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 4.5vw, 4.8rem);
+  font-weight: 500;
+
+  line-height: 0.98;
+  letter-spacing: -0.01em;
+}
+
+.our-story-accent {
+  width: 48px;
+  height: 2px;
+
+  margin: 2rem 0;
+
+  background: var(--color-gold);
+}
+
+.our-story-content p {
+  max-width: 520px;
+
+  margin-bottom: 1.5rem;
+
+  color: #c8b9aa;
+
+  font-family: var(--font-heading);
+  font-size: 1.08rem;
+  font-weight: 400;
+
+  line-height: 1.55;
+}
+
+
+/* =========================
+   RIGHT IMAGE
+========================= */
+
+.our-story-visual {
+  position: relative;
+}
+
+.our-story-image {
+  width: 100%;
+  height: 500px;
+
+  background:
+    linear-gradient(
+      rgba(15, 2, 2, 0.12),
+      rgba(15, 2, 2, 0.18)
+    ),
+    linear-gradient(
+      135deg,
+      #301010,
+      #120303
+    );
+
+  background-size: cover;
+  background-position: center;
+
+  border: 1px solid rgba(211, 176, 107, 0.16);
+
+  overflow: hidden;
+}
+
+
+/* =========================
+   SIGNATURE ITEMS CARD
+========================= */
+
+.signature-count {
+  position: absolute;
+
+  left: -24px;
+  bottom: -18px;
+
+  width: 105px;
+  height: 120px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background: #d6b56f;
+
+  border: 1px solid #ead29b;
+
+  color: #2a0909;
+
+  text-align: center;
+
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+.signature-count strong {
+  margin-bottom: 0.35rem;
+
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 600;
+
+  line-height: 1;
+}
+
+.signature-count span {
+  font-family: var(--font-body);
+
+  font-size: 0.55rem;
+  font-weight: 600;
+
+  line-height: 1.5;
+  letter-spacing: 0.14em;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+  .our-story {
+    padding: 5rem 0;
+  }
+
+  .our-story-container {
+    width: 88%;
+
+    grid-template-columns: 1fr;
+
+    gap: 3.5rem;
+  }
+
+  .our-story-content {
+    max-width: 650px;
+  }
+
+  .our-story-image {
+    height: 450px;
+  }
+
+  .signature-count {
+    left: 20px;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .our-story {
+    padding: 4rem 0 5rem;
+  }
+
+  .our-story-container {
+    gap: 3rem;
+  }
+
+  .our-story-content h2 {
+    font-size: 3.2rem;
+  }
+
+  .our-story-content p {
+    font-size: 1rem;
+  }
+
+  .our-story-image {
+    height: 350px;
+  }
+
+  .signature-count {
+    width: 90px;
+    height: 105px;
+
+    left: 15px;
+    bottom: -20px;
+  }
+
+  .signature-count strong {
+    font-size: 1.7rem;
+  }
+}
+
+.our-story-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  transition: transform 0.6s ease;
+}
+
+.our-story-visual:hover .our-story-image img {
+  transform: scale(1.03);
+}
+

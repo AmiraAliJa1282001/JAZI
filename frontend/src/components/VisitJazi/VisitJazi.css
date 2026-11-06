@@ -1,0 +1,461 @@
+/* =========================
+   VISIT JAZI
+   ========================= */
+
+.visit-jazi {
+  padding: 3rem 0;
+
+  background:
+    radial-gradient(
+      circle at 15% 30%,
+      rgba(80, 15, 15, 0.25),
+      transparent 40%
+    ),
+    #180303;
+
+  border-bottom:
+    1px solid rgba(211, 176, 107, 0.2);
+}
+
+.visit-jazi-container {
+  width: min(84%, 1400px);
+  margin-inline: auto;
+
+  display: grid;
+  grid-template-columns: 0.75fr 1.25fr;
+
+  gap: 4rem;
+  align-items: center;
+}
+
+
+/* =========================
+   LEFT CONTENT
+   ========================= */
+
+.visit-eyebrow {
+  display: block;
+
+  margin-bottom: 0.55rem;
+
+  color: #b86f4d;
+
+  font-size: 0.6rem;
+  font-weight: 600;
+
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+}
+
+.visit-jazi-content h2 {
+  margin: 0 0 0.8rem;
+
+  color: var(--color-cream);
+
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 4vw, 3.5rem);
+  font-weight: 500;
+
+  line-height: 1;
+}
+
+.visit-description {
+  max-width: 390px;
+
+  margin-bottom: 1.2rem;
+
+  color: var(--color-muted);
+
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+
+  line-height: 1.35;
+}
+
+
+/* =========================
+   DETAILS
+   ========================= */
+
+.visit-details {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.65rem;
+}
+
+.visit-detail {
+  display: flex;
+  align-items: center;
+
+  gap: 0.8rem;
+
+  color: var(--color-cream);
+
+  font-size: 0.78rem;
+}
+
+.visit-detail > div:last-child {
+  display: flex;
+  flex-direction: column;
+}
+
+.visit-icon {
+  width: 24px;
+  height: 24px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--color-gold);
+}
+
+.visit-icon svg {
+  width: 22px;
+  height: 22px;
+
+  display: block;
+
+  flex-shrink: 0;
+}
+
+.visit-phone {
+  width: fit-content;
+
+  transition: color 0.25s ease;
+}
+
+.visit-phone:hover {
+  color: var(--color-gold-light);
+}
+
+
+/* =========================
+   MAP
+   ========================= */
+
+.visit-map {
+  position: relative;
+
+  min-height: 310px;
+
+  overflow: hidden;
+
+  background: #071923;
+
+  border:
+    1px solid rgba(211, 176, 107, 0.22);
+
+  border-radius: 14px;
+}
+
+
+/* =========================
+   REAL LEAFLET MAP
+   ========================= */
+
+.jazi-leaflet-map {
+  width: 100%;
+  height: 310px;
+
+  z-index: 1;
+}
+
+
+/* =========================
+   MAP FILTER
+   ========================= */
+
+.jazi-leaflet-map .leaflet-tile-pane {
+  filter:
+    brightness(0.55)
+    saturate(0.6)
+    contrast(1.15)
+    sepia(0.12);
+}
+
+
+/* =========================
+   LEAFLET CONTROLS
+   ========================= */
+
+.jazi-leaflet-map .leaflet-control-zoom {
+  border:
+    1px solid rgba(211, 176, 107, 0.35);
+}
+
+.jazi-leaflet-map .leaflet-control-zoom a {
+  background: #220606;
+
+  color: var(--color-gold);
+
+  border-color:
+    rgba(211, 176, 107, 0.2);
+}
+
+.jazi-leaflet-map .leaflet-control-zoom a:hover {
+  background: var(--color-gold);
+
+  color: #180303;
+}
+
+
+/* =========================
+   JAZI MARKER
+   ========================= */
+
+.jazi-marker-wrapper {
+  background: transparent !important;
+  border: none !important;
+}
+
+.jazi-marker {
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  width: 32px;
+  height: 32px;
+
+  background: #b94135;
+
+  border: 2px solid #e4ca94;
+
+  border-radius: 50% 50% 50% 0;
+
+  transform:
+    translateX(-50%)
+    rotate(-45deg);
+
+  box-shadow:
+    0 5px 18px rgba(0, 0, 0, 0.5),
+    0 0 0 5px rgba(185, 65, 53, 0.15);
+}
+
+.jazi-marker-dot {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 8px;
+  height: 8px;
+
+  background: #f3eadb;
+
+  border-radius: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
+
+/* =========================
+   JAZI MARKER LABEL
+   ========================= */
+
+.jazi-marker-label {
+  position: absolute;
+
+  top: 38px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  color: #f3eadb;
+
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 600;
+
+  letter-spacing: 0.15em;
+
+  text-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.9);
+}
+
+
+/* =========================
+   POPUP
+   ========================= */
+
+.jazi-popup {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+
+  min-width: 120px;
+}
+
+.jazi-popup strong {
+  color: #4c1111;
+
+  font-family: var(--font-heading);
+  font-size: 1rem;
+}
+
+.jazi-popup span {
+  font-size: 0.75rem;
+}
+
+
+/* =========================
+   GOOGLE MAPS BUTTON
+   ========================= */
+
+.map-button {
+  position: absolute;
+
+  z-index: 500;
+
+  left: 20px;
+  bottom: 20px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.7rem;
+
+  padding: 0.75rem 1rem;
+
+  background: rgba(20, 4, 4, 0.9);
+
+  border: 1px solid var(--color-gold);
+  border-radius: 5px;
+
+  color: var(--color-cream);
+
+  font-size: 0.68rem;
+  font-weight: 500;
+
+  backdrop-filter: blur(6px);
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.map-button > span {
+  color: inherit;
+}
+
+.map-button svg {
+  width: 16px;
+  height: 16px;
+
+  flex-shrink: 0;
+
+  color: var(--color-gold);
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.map-button:hover {
+  background: var(--color-gold);
+
+  color: var(--color-bg-dark);
+
+  transform: translateY(-2px);
+}
+
+.map-button:hover svg {
+  color: var(--color-bg-dark);
+
+  transform:
+    translate(2px, -2px);
+}
+
+
+/* =========================
+   NO LOCATION
+   ========================= */
+
+.map-not-available {
+  min-height: 310px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.5rem;
+
+  padding: 2rem;
+
+  color: var(--color-muted);
+
+  text-align: center;
+}
+
+.map-not-available-title {
+  color: var(--color-gold);
+
+  font-family: var(--font-heading);
+  font-size: 2rem;
+
+  letter-spacing: 0.15em;
+}
+
+
+/* =========================
+   TABLET
+   ========================= */
+
+@media (max-width: 900px) {
+  .visit-jazi-container {
+    width: 88%;
+
+    grid-template-columns: 1fr;
+
+    gap: 2.5rem;
+  }
+
+  .visit-map {
+    min-height: 350px;
+  }
+
+  .jazi-leaflet-map {
+    height: 350px;
+  }
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
+  .visit-jazi {
+    padding: 3.5rem 0;
+  }
+
+  .visit-map {
+    min-height: 300px;
+
+    border-radius: 10px;
+  }
+
+  .jazi-leaflet-map {
+    height: 300px;
+  }
+
+  .map-button {
+    left: 15px;
+    bottom: 15px;
+
+    padding: 0.7rem 0.9rem;
+  }
+
+  .map-button svg {
+    width: 15px;
+    height: 15px;
+  }
+}

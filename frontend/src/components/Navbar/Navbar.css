@@ -1,0 +1,531 @@
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+  position: relative;
+  z-index: 1000;
+
+  width: 100%;
+  height: 86px;
+
+  display: flex;
+  align-items: center;
+
+  background: #1b0303;
+
+  border-bottom: 1px solid rgba(211, 176, 107, 0.18);
+}
+
+.navbar-container {
+  width: min(90%, var(--container-width));
+  height: 100%;
+
+  margin-inline: auto;
+
+  display: flex;
+  align-items: center;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.navbar-logo {
+  flex-shrink: 0;
+
+  color: var(--color-cream);
+
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 600;
+
+  line-height: 1;
+
+  letter-spacing: 0.08em;
+
+  transition: color 0.25s ease;
+}
+
+.navbar-logo:hover {
+  color: var(--color-gold);
+}
+
+
+/* =========================================================
+   DESKTOP NAVIGATION
+========================================================= */
+
+.navbar-links {
+  margin-left: auto;
+  margin-right: 3rem;
+
+  display: flex;
+  align-items: center;
+
+  gap: 2rem;
+}
+
+.navbar-links a {
+  position: relative;
+
+  padding: 0.6rem 0;
+
+  color: #c9bcad;
+
+  font-family: var(--font-body);
+  font-size: 0.67rem;
+  font-weight: 400;
+
+  letter-spacing: 0.08em;
+
+  transition: color 0.25s ease;
+}
+
+.navbar-links a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 0;
+  height: 1px;
+
+  background: var(--color-gold);
+
+  transition: width 0.25s ease;
+}
+
+.navbar-links a:hover,
+.navbar-links a.active {
+  color: var(--color-gold-light);
+}
+
+.navbar-links a:hover::after,
+.navbar-links a.active::after {
+  width: 100%;
+}
+
+
+/* =========================================================
+   DESKTOP ACTIONS
+========================================================= */
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 1.1rem;
+
+  flex-shrink: 0;
+}
+
+
+/* LANGUAGE */
+
+.navbar-language {
+  padding: 0.5rem;
+
+  background: transparent;
+  border: none;
+
+  color: #c8b9aa;
+
+  font-family: var(--font-body);
+  font-size: 0.58rem;
+  font-weight: 500;
+
+  letter-spacing: 0.12em;
+
+  transition: color 0.25s ease;
+}
+
+.navbar-language:hover {
+  color: var(--color-gold);
+}
+
+
+/* ORDER NOW */
+
+.navbar-order-button {
+  height: 44px;
+
+  padding: 0 1.25rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 1.4rem;
+
+  background: var(--color-gold);
+
+  border: 1px solid var(--color-gold);
+
+  color: #180303;
+
+  font-family: var(--font-body);
+  font-size: 0.57rem;
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.navbar-order-button span {
+  font-size: 0.9rem;
+
+  transition: transform 0.25s ease;
+}
+
+.navbar-order-button:hover {
+  background: var(--color-gold-light);
+  border-color: var(--color-gold-light);
+}
+
+.navbar-order-button:hover span {
+  transform: translateX(3px);
+}
+
+
+/* =========================================================
+   MOBILE ACTIONS
+========================================================= */
+
+.navbar-mobile-actions {
+  display: none;
+
+  margin-left: auto;
+
+  align-items: center;
+
+  gap: 0.55rem;
+}
+
+.navbar-mobile-language {
+  min-width: 32px;
+
+  padding: 0.4rem;
+
+  background: transparent;
+  border: none;
+
+  color: var(--color-cream);
+
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  font-weight: 500;
+
+  letter-spacing: 0.08em;
+
+  transition: color 0.25s ease;
+}
+
+.navbar-mobile-language:hover {
+  color: var(--color-gold);
+}
+
+
+/* =========================================================
+   HAMBURGER
+========================================================= */
+
+.navbar-toggle {
+  position: relative;
+
+  width: 38px;
+  height: 38px;
+
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  background: transparent;
+
+  border: none;
+
+  color: var(--color-cream);
+}
+
+.navbar-toggle span {
+  display: block;
+
+  width: 20px;
+  height: 1px;
+
+  background: currentColor;
+
+  transform-origin: center;
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease,
+    color 0.25s ease;
+}
+
+.navbar-toggle:hover {
+  color: var(--color-gold);
+}
+
+
+/* OPEN HAMBURGER */
+
+.navbar-toggle.open span:first-child {
+  transform:
+    translateY(3.5px)
+    rotate(45deg);
+}
+
+.navbar-toggle.open span:last-child {
+  transform:
+    translateY(-3.5px)
+    rotate(-45deg);
+}
+
+
+/* =========================================================
+   MOBILE FULL SCREEN MENU
+========================================================= */
+
+.mobile-menu {
+  position: fixed;
+
+  top: 70px;
+  left: 0;
+
+  z-index: 999;
+
+  width: 100%;
+  height: calc(100dvh - 70px);
+
+  padding: 2.2rem 7% 2rem;
+
+  display: flex;
+  flex-direction: column;
+
+  background:
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(105, 23, 18, 0.18),
+      transparent 40%
+    ),
+    #1b0303;
+
+  border-top: 1px solid rgba(211, 176, 107, 0.12);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(-10px);
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease,
+    transform 0.3s ease;
+}
+
+.mobile-menu.open {
+  opacity: 1;
+  visibility: visible;
+
+  transform: translateY(0);
+
+  pointer-events: auto;
+}
+
+
+/* =========================================================
+   MOBILE MENU LINKS
+========================================================= */
+
+.mobile-menu-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-menu-links a {
+  display: flex;
+  align-items: center;
+
+  gap: 1rem;
+
+  padding: 0.9rem 0;
+
+  border-bottom: 1px solid rgba(211, 176, 107, 0.13);
+
+  color: var(--color-cream);
+
+  font-family: var(--font-heading);
+  font-size: clamp(1.45rem, 6vw, 1.9rem);
+  font-weight: 500;
+
+  line-height: 1.15;
+
+  transition:
+    color 0.25s ease,
+    padding-left 0.25s ease;
+}
+
+.mobile-menu-links a > span {
+  width: 26px;
+
+  flex-shrink: 0;
+
+  color: #c4513f;
+
+  font-family: var(--font-body);
+  font-size: 0.52rem;
+  font-weight: 600;
+
+  letter-spacing: 0.15em;
+}
+
+.mobile-menu-links a:hover {
+  padding-left: 0.4rem;
+
+  color: var(--color-gold);
+}
+
+
+/* =========================================================
+   MOBILE ORDER BUTTON
+========================================================= */
+
+.mobile-order-button {
+  width: 100%;
+  height: 50px;
+
+  margin-top: auto;
+
+  padding: 0 1.2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: var(--color-gold);
+
+  color: var(--color-bg-dark);
+
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.mobile-order-button:hover {
+  background: var(--color-gold-light);
+}
+
+.mobile-order-button span:last-child {
+  font-size: 1rem;
+
+  transition: transform 0.25s ease;
+}
+
+.mobile-order-button:hover span:last-child {
+  transform: translateX(4px);
+}
+
+
+/* =========================================================
+   TABLET / MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .navbar {
+    height: 70px;
+  }
+
+  .navbar-container {
+    width: 88%;
+  }
+
+
+  /* HIDE DESKTOP */
+
+  .navbar-links,
+  .navbar-actions {
+    display: none;
+  }
+
+
+  /* SHOW MOBILE */
+
+  .navbar-mobile-actions {
+    display: flex;
+  }
+
+
+  /* LOGO */
+
+  .navbar-logo {
+    font-size: 1.7rem;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+  .navbar-container {
+    width: 90%;
+  }
+
+  .navbar-logo {
+    font-size: 1.55rem;
+  }
+
+  .navbar-mobile-actions {
+    gap: 0.25rem;
+  }
+
+  .navbar-mobile-language {
+    padding-inline: 0.25rem;
+  }
+
+  .navbar-toggle {
+    width: 34px;
+    height: 34px;
+  }
+
+  .mobile-menu {
+    padding:
+      1.8rem
+      6%
+      1.5rem;
+  }
+
+  .mobile-menu-links a {
+    padding: 0.8rem 0;
+
+    font-size: 1.45rem;
+  }
+
+  .mobile-order-button {
+    height: 48px;
+  }
+}

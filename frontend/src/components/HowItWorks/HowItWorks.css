@@ -1,0 +1,301 @@
+/* =========================
+   HOW IT WORKS
+   ========================= */
+
+.how-it-works {
+  position: relative;
+
+  padding: 3.2rem 0 3.6rem;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(92, 18, 14, 0.3),
+      transparent 50%
+    ),
+    #180303;
+
+  border-top: 1px solid rgba(211, 176, 107, 0.16);
+  border-bottom: 1px solid rgba(211, 176, 107, 0.16);
+}
+
+.how-it-works-container {
+  width: min(84%, 1400px);
+  margin-inline: auto;
+}
+
+
+/* =========================
+   HEADING
+   ========================= */
+
+.how-it-works-heading {
+  margin-bottom: 2.8rem;
+
+  text-align: center;
+}
+
+.how-it-works-heading > span {
+  display: block;
+
+  margin-bottom: 0.5rem;
+
+  color: #b86f4d;
+
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  font-weight: 600;
+
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+}
+
+.how-it-works-heading h2 {
+  margin: 0;
+
+  color: var(--color-cream);
+
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 4vw, 3.6rem);
+  font-weight: 500;
+
+  line-height: 1;
+}
+
+
+/* =========================
+   STEPS
+   ========================= */
+
+.how-it-works-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 3.8rem;
+}
+
+.how-step-wrapper {
+  position: relative;
+}
+
+
+/* =========================
+   SINGLE STEP
+   ========================= */
+
+.how-step {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+
+  gap: 1rem;
+  align-items: start;
+
+  transition: transform 0.3s ease;
+}
+
+
+/* =========================
+   ICON
+   ========================= */
+
+.how-step-icon {
+  padding-top: 0.15rem;
+
+  color: var(--color-cream);
+}
+
+.how-step-icon svg {
+  width: 42px;
+  height: 42px;
+
+  display: block;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+/* =========================
+   STEP NUMBER
+   ========================= */
+
+.how-step-number {
+  display: block;
+
+  margin-bottom: 0.2rem;
+
+  color: #c4513f;
+
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+
+  line-height: 1;
+  letter-spacing: 0.2em;
+}
+
+
+/* =========================
+   STEP TITLE
+   ========================= */
+
+.how-step-title {
+  margin: 0;
+
+  color: var(--color-cream);
+
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 500;
+
+  line-height: 0.95;
+}
+
+.how-step-title h3 {
+  margin: 0;
+
+  font: inherit;
+}
+
+.how-step-title span {
+  display: block;
+}
+
+
+/* =========================
+   DESCRIPTION
+   ========================= */
+
+.how-step-content p {
+  max-width: 160px;
+
+  margin-top: 0.9rem;
+
+  color: var(--color-muted);
+
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 300;
+
+  line-height: 1.5;
+}
+
+
+/* =========================
+   ARROWS
+   ========================= */
+
+.how-step-arrow {
+  position: absolute;
+
+  top: 18px;
+  right: -2.4rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--color-gold);
+}
+
+.how-step-arrow svg {
+  width: 20px;
+  height: 20px;
+
+  display: block;
+
+  transition: transform 0.25s ease;
+}
+
+
+/* =========================
+   HOVER
+   ========================= */
+
+.how-step-wrapper:hover .how-step {
+  transform: translateY(-3px);
+}
+
+.how-step-wrapper:hover .how-step-icon {
+  color: var(--color-gold);
+}
+
+.how-step-wrapper:hover .how-step-icon svg {
+  transform: scale(1.05);
+}
+
+.how-step-wrapper:hover .how-step-arrow svg {
+  transform: translateX(3px);
+}
+
+
+/* =========================
+   TABLET
+   ========================= */
+
+@media (max-width: 1000px) {
+  .how-it-works-container {
+    width: 88%;
+  }
+
+  .how-it-works-steps {
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    gap: 3rem 5rem;
+  }
+
+  .how-step-arrow {
+    display: none;
+  }
+
+  .how-step-content p {
+    max-width: 220px;
+  }
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
+  .how-it-works {
+    padding: 4rem 0;
+  }
+
+  .how-it-works-heading {
+    margin-bottom: 3rem;
+  }
+
+  .how-it-works-steps {
+    grid-template-columns: 1fr;
+
+    gap: 2.5rem;
+  }
+
+  .how-step {
+    grid-template-columns:
+      48px 1fr;
+  }
+
+  .how-step-wrapper:not(:last-child)::after {
+    content: "";
+
+    position: absolute;
+
+    left: 21px;
+    bottom: -1.5rem;
+
+    width: 1px;
+    height: 1rem;
+
+    background:
+      rgba(211, 176, 107, 0.3);
+  }
+
+  .how-step-content p {
+    max-width: 280px;
+  }
+}

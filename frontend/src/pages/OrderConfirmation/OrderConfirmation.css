@@ -1,0 +1,362 @@
+/* =========================
+   CONFIRMATION PAGE
+   ========================= */
+
+.confirmation-page {
+  min-height: calc(100vh - 86px);
+
+  padding: 5rem 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle at 50% 25%,
+      rgba(104, 20, 20, 0.25),
+      transparent 35%
+    ),
+    #180303;
+}
+
+
+/* =========================
+   CARD
+   ========================= */
+
+.confirmation-card {
+  width: min(100%, 620px);
+
+  padding: 3.5rem;
+
+  background: #210505;
+
+  border:
+    1px solid rgba(211, 176, 107, 0.3);
+
+  text-align: center;
+}
+
+
+/* =========================
+   SUCCESS ICON
+   ========================= */
+
+.confirmation-check {
+  width: 62px;
+  height: 62px;
+
+  margin: 0 auto 1.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid var(--color-gold);
+
+  border-radius: 50%;
+
+  color: var(--color-gold);
+}
+
+.confirmation-check svg {
+  width: 30px;
+  height: 30px;
+
+  display: block;
+
+  stroke: currentColor;
+
+  animation:
+    confirmationCheckIn 0.4s ease;
+}
+
+@keyframes confirmationCheckIn {
+  0% {
+    opacity: 0;
+
+    transform: scale(0.45);
+  }
+
+  70% {
+    transform: scale(1.12);
+  }
+
+  100% {
+    opacity: 1;
+
+    transform: scale(1);
+  }
+}
+
+
+/* =========================
+   HEADER
+   ========================= */
+
+.confirmation-eyebrow {
+  color: var(--color-gold);
+
+  font-size: 0.55rem;
+  font-weight: 600;
+
+  letter-spacing: 0.35em;
+}
+
+.confirmation-card h1 {
+  margin: 0.5rem 0;
+
+  color: var(--color-cream);
+
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  font-weight: 400;
+
+  line-height: 1;
+}
+
+.confirmation-message {
+  max-width: 420px;
+
+  margin: 0 auto;
+
+  color: var(--color-muted);
+
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+}
+
+
+/* =========================
+   ORDER NUMBER
+   ========================= */
+
+.confirmation-number {
+  margin: 2rem 0;
+
+  padding: 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background: #180303;
+
+  border:
+    1px solid rgba(211, 176, 107, 0.22);
+}
+
+.confirmation-number > span {
+  color: #9f8e7e;
+
+  font-size: 0.5rem;
+  font-weight: 600;
+
+  letter-spacing: 0.2em;
+}
+
+.confirmation-number strong {
+  margin: 0.4rem 0;
+
+  color: var(--color-gold-light);
+
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 500;
+
+  line-height: 1;
+}
+
+.confirmation-number small {
+  color: #827161;
+
+  font-size: 0.55rem;
+}
+
+
+/* =========================
+   ORDER DETAILS
+   ========================= */
+
+.confirmation-details {
+  margin-bottom: 2rem;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  border-top:
+    1px solid rgba(211, 176, 107, 0.16);
+
+  border-bottom:
+    1px solid rgba(211, 176, 107, 0.16);
+}
+
+.confirmation-details > div {
+  padding: 1rem 0.5rem;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.2rem;
+}
+
+.confirmation-details > div:not(:last-child) {
+  border-right:
+    1px solid rgba(211, 176, 107, 0.16);
+}
+
+.confirmation-details span {
+  color: #877565;
+
+  font-size: 0.5rem;
+
+  letter-spacing: 0.1em;
+}
+
+.confirmation-details strong {
+  color: var(--color-cream);
+
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+
+/* =========================
+   TRACK ORDER BUTTON
+   ========================= */
+
+.confirmation-track {
+  width: 100%;
+  height: 52px;
+
+  padding: 0 1.3rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  background: var(--color-gold);
+
+  border:
+    1px solid var(--color-gold);
+
+  color: #180303;
+
+  font-size: 0.58rem;
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.confirmation-track svg {
+  width: 18px;
+  height: 18px;
+
+  display: block;
+
+  flex-shrink: 0;
+
+  stroke: currentColor;
+
+  transition:
+    transform 0.25s ease;
+}
+
+.confirmation-track:hover {
+  background: var(--color-gold-light);
+
+  border-color: var(--color-gold-light);
+}
+
+.confirmation-track:hover svg {
+  transform: translateX(3px);
+}
+
+
+/* =========================
+   RETURN HOME
+   ========================= */
+
+.confirmation-home {
+  display: inline-block;
+
+  margin-top: 1.2rem;
+
+  color: #9d8b7b;
+
+  font-size: 0.6rem;
+
+  border-bottom:
+    1px solid rgba(211, 176, 107, 0.3);
+
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.confirmation-home:hover {
+  color: var(--color-gold-light);
+
+  border-color: var(--color-gold);
+}
+
+
+/* =========================
+   FOCUS
+   ========================= */
+
+.confirmation-track:focus-visible,
+.confirmation-home:focus-visible {
+  outline:
+    2px solid var(--color-gold-light);
+
+  outline-offset: 3px;
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
+  .confirmation-page {
+    min-height: calc(100vh - 70px);
+
+    padding: 2rem 1rem;
+  }
+
+  .confirmation-card {
+    padding: 2.2rem 1.3rem;
+  }
+
+  .confirmation-card h1 {
+    font-size: 3.2rem;
+  }
+
+  .confirmation-number strong {
+    font-size: 2.5rem;
+  }
+
+  .confirmation-details {
+    grid-template-columns: 1fr;
+  }
+
+  .confirmation-details > div:not(:last-child) {
+    border-right: none;
+
+    border-bottom:
+      1px solid rgba(211, 176, 107, 0.16);
+  }
+}

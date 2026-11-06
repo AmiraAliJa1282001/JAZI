@@ -1,0 +1,339 @@
+/* =========================
+   INSTAGRAM SECTION
+   ========================= */
+
+.instagram-section {
+  padding: 2.6rem 0;
+
+  background:
+    radial-gradient(
+      circle at 15% 50%,
+      rgba(85, 16, 16, 0.3),
+      transparent 40%
+    ),
+    #180303;
+
+  border-top:
+    1px solid rgba(211, 176, 107, 0.15);
+
+  border-bottom:
+    1px solid rgba(211, 176, 107, 0.15);
+}
+
+.instagram-container {
+  width: min(84%, 1400px);
+  margin-inline: auto;
+
+  display: grid;
+  grid-template-columns:
+    250px 1fr 60px;
+
+  gap: 2.5rem;
+  align-items: center;
+}
+
+
+/* =========================
+   PROFILE
+   ========================= */
+
+.instagram-eyebrow {
+  display: block;
+
+  margin-bottom: 1rem;
+
+  color: #b86f4d;
+
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  font-weight: 600;
+
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+}
+
+.instagram-profile {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 0.9rem;
+
+  color: var(--color-cream);
+
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 500;
+
+  transition: color 0.25s ease;
+}
+
+.instagram-profile:hover {
+  color: var(--color-gold);
+}
+
+
+/* =========================
+   INSTAGRAM ICON
+   ========================= */
+
+.instagram-icon {
+  width: 30px;
+  height: 30px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--color-gold-light);
+}
+
+.instagram-icon svg {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  fill: none;
+
+  stroke: var(--color-gold-light);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.instagram-dot {
+  fill: var(--color-gold-light);
+  stroke: none;
+}
+
+
+/* =========================
+   GALLERY
+   ========================= */
+
+.instagram-gallery {
+  display: grid;
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 1rem;
+}
+
+.instagram-image {
+  position: relative;
+
+  width: 100%;
+  aspect-ratio: 1 / 1;
+
+  display: block;
+
+  overflow: hidden;
+
+  background: #260707;
+
+  border:
+    1px solid rgba(211, 176, 107, 0.35);
+
+  border-radius: 7px;
+}
+
+.instagram-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.5s ease,
+    filter 0.4s ease;
+}
+
+
+/* =========================
+   GALLERY OVERLAY
+   ========================= */
+
+.instagram-image-overlay {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(31, 5, 5, 0.55);
+
+  opacity: 0;
+
+  transition: opacity 0.3s ease;
+}
+
+.instagram-image-overlay svg {
+  width: 30px;
+  height: 30px;
+
+  display: block;
+
+  fill: none;
+
+  stroke: var(--color-cream);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  transform: scale(0.9);
+
+  transition: transform 0.3s ease;
+}
+
+.instagram-image-overlay .instagram-dot {
+  fill: var(--color-cream);
+  stroke: none;
+}
+
+.instagram-image:hover img {
+  transform: scale(1.06);
+
+  filter: brightness(0.7);
+}
+
+.instagram-image:hover
+.instagram-image-overlay {
+  opacity: 1;
+}
+
+.instagram-image:hover
+.instagram-image-overlay svg {
+  transform: scale(1);
+}
+
+
+/* =========================
+   ARROW BUTTON
+   ========================= */
+
+.instagram-arrow {
+  width: 54px;
+  height: 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--color-gold);
+  border-radius: 50%;
+
+  color: var(--color-gold);
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.instagram-arrow svg {
+  width: 21px;
+  height: 21px;
+
+  display: block;
+
+  transition: transform 0.25s ease;
+}
+
+.instagram-arrow:hover {
+  background: var(--color-gold);
+
+  color: var(--color-bg-dark);
+
+  transform: translateX(4px);
+}
+
+.instagram-arrow:hover svg {
+  transform: translateX(2px);
+}
+
+
+/* =========================
+   FOCUS
+   ========================= */
+
+.instagram-profile:focus-visible,
+.instagram-image:focus-visible,
+.instagram-arrow:focus-visible {
+  outline:
+    2px solid var(--color-gold-light);
+
+  outline-offset: 3px;
+}
+
+
+/* =========================
+   TABLET
+   ========================= */
+
+@media (max-width: 1000px) {
+  .instagram-container {
+    width: 88%;
+
+    grid-template-columns:
+      1fr 50px;
+  }
+
+  .instagram-info {
+    grid-column: 1 / -1;
+  }
+
+  .instagram-gallery {
+    grid-template-columns:
+      repeat(4, 1fr);
+  }
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 650px) {
+  .instagram-section {
+    padding: 3rem 0;
+  }
+
+  .instagram-container {
+    grid-template-columns: 1fr;
+
+    gap: 1.7rem;
+  }
+
+  .instagram-info {
+    grid-column: auto;
+  }
+
+  .instagram-profile {
+    font-size: 1.5rem;
+  }
+
+  .instagram-icon {
+    width: 27px;
+    height: 27px;
+  }
+
+  .instagram-gallery {
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    gap: 0.8rem;
+  }
+
+  .instagram-arrow {
+    width: 48px;
+    height: 48px;
+  }
+
+  .instagram-arrow svg {
+    width: 19px;
+    height: 19px;
+  }
+}
