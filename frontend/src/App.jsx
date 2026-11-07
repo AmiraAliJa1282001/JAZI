@@ -31,6 +31,7 @@ import AdminCategories from "./pages/AdminCategories/AdminCategories";
 import AdminEmployees from "./pages/AdminEmployees/AdminEmployees";
 
 import AdminSettings from "./pages/AdminSettings/AdminSettings";
+import AdminReports from "./pages/AdminReports/AdminReports";
 
 
 
@@ -144,6 +145,7 @@ function AppRoutes() {
   />
 
 
+      <Route path="/admin/reports" element={<ProtectedAdminRoute><AdminReports /></ProtectedAdminRoute>} />
     </Routes>
   );
 }

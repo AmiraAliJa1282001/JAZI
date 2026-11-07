@@ -66,3 +66,8 @@ urlpatterns = [
     ),
 
 ]
+from .reports import AdminReports, AdminReportsCSV
+urlpatterns += [
+    path("admin/reports/", AdminReports.as_view()),
+    path("admin/reports/csv/", AdminReportsCSV.as_view()),
+]
