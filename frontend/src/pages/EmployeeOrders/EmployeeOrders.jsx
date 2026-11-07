@@ -159,6 +159,29 @@ function EmployeeOrders() {
   const {employee,employeeLoading,loggingOut,logoutEmployee,} = useEmployee();
 
   const [orders, setOrders] = useState([]);
+  const [soundEnabled, setSoundEnabled] = useState(false);
+  const audioContextRef = useRef(null);
+  async function enableSound() {
+    const Ctx = window.AudioContext || window.webkitAudioContext;
+    if (!Ctx) return;
+    const ctx = audioContextRef.current || new Ctx();
+    audioContextRef.current = ctx;
+    await ctx.resume();
+    setSoundEnabled(true);
+  }
+  function playOrderSound() {
+    const ctx = audioContextRef.current;
+    if (!ctx || ctx.state !== "running") return;
+    const oscillator = ctx.createOscillator();
+    const gain = ctx.createGain();
+    oscillator.type = "sine";
+    oscillator.frequency.value = 740;
+    gain.gain.setValueAtTime(0.0001, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.12, ctx.currentTime + 0.03);
+    gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.3);
+    oscillator.connect(gain); gain.connect(ctx.destination);
+    oscillator.start(); oscillator.stop(ctx.currentTime + 0.32);
+  }
  
 
   const [activeFilter, setActiveFilter] =useState("all");
@@ -261,6 +284,12 @@ async function handleLogout() {
           );
 
         if (newOrders.length > 0) {
+          if (audioContextRef.current?.state === "running") {
+            fetch("http://127.0.0.1:8000/api/website/order-availability/")
+              .then(r => r.json())
+              .then(info => { if (info.order_sound_enabled) playOrderSound(); })
+              .catch(() => {});
+          }
           const newestOrder =
             newOrders[0];
 
@@ -673,6 +702,7 @@ useEffect(() => {
 
         {/* NEW ORDER ALERT */}
 
+        <button type="button" onClick={enableSound} style={{margin:"12px 0",padding:"9px 14px",borderRadius:8,border:"1px solid #d3b06b",background:"#fffdf9",cursor:"pointer"}}>{soundEnabled ? "🔔 Order sound enabled" : "🔔 Enable order sound"}</button>
         {newOrderAlert && (
           <div className="employee-new-order-alert">
             <div className="employee-new-order-alert-icon">

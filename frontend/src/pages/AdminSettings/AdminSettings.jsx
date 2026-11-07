@@ -1,3 +1,4 @@
+import OperationsPanel from "./OperationsPanel";
 
 
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -1677,6 +1678,7 @@ export default function AdminSettings() {
 
         )}
 
+        <OperationsPanel />
       </main>
 
 

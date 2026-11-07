@@ -52,3 +52,10 @@ urlpatterns = [
     ),
 
 ]
+urlpatterns += [
+    path("order-availability/", __import__("website.operations_views", fromlist=["PublicOrderAvailability"]).PublicOrderAvailability.as_view()),
+    path("admin/settings/operations/", __import__("website.operations_views", fromlist=["AdminOperations"]).AdminOperations.as_view()),
+    path("admin/settings/business-hours/", __import__("website.operations_views", fromlist=["AdminBusinessHours"]).AdminBusinessHours.as_view()),
+    path("admin/security/password/", __import__("website.operations_views", fromlist=["AdminPasswordChange"]).AdminPasswordChange.as_view()),
+    path("admin/security/logout-others/", __import__("website.operations_views", fromlist=["AdminLogoutOtherSessions"]).AdminLogoutOtherSessions.as_view()),
+]

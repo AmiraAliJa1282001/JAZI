@@ -29,6 +29,15 @@ from .serializers import (
 
 class OrderCreateAPIView(APIView):
     def post(self, request):
+        from website.operations import can_accept_orders
+        from website.models import OperationsSettings
+        from menu.models import Product
+        allowed, reason = can_accept_orders()
+        if not allowed:
+            return Response({"detail": reason}, status=status.HTTP_403_FORBIDDEN)
+        settings = OperationsSettings.load()
+        raw_items = request.data.get("items", [])
+        # Validate quantities/product availability using the existing serializer first.
         serializer = OrderCreateSerializer(
             data=request.data
         )
@@ -37,6 +46,9 @@ class OrderCreateAPIView(APIView):
             raise_exception=True
         )
 
+        computed_total = sum((item["product"].price * item["quantity"] for item in serializer.validated_data["items"]), Decimal("0.00"))
+        if computed_total < settings.minimum_order:
+            return Response({"detail": f"Minimum order is {settings.minimum_order} AED."}, status=status.HTTP_400_BAD_REQUEST)
         order = serializer.save()
 
         response_serializer = (

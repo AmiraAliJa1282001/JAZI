@@ -280,3 +280,36 @@ class InstagramSettings(models.Model):
 
     def __str__(self):
         return "Instagram Section"
+
+class OperationsSettings(models.Model):
+    business_name = models.CharField(max_length=120, default="JAZI")
+    logo = models.ImageField(upload_to="website/branding/", blank=True, null=True)
+    email = models.EmailField(blank=True)
+    whatsapp = models.CharField(max_length=30, blank=True)
+    currency = models.CharField(max_length=3, default="AED")
+    accepting_orders = models.BooleanField(default=True)
+    minimum_order = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    preparation_minutes = models.PositiveSmallIntegerField(default=20)
+    enforce_business_hours = models.BooleanField(default=False)
+    temporarily_closed = models.BooleanField(default=False)
+    order_sound_enabled = models.BooleanField(default=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    @classmethod
+    def load(cls):
+        obj, _ = cls.objects.get_or_create(pk=1)
+        return obj
+
+    def save(self, *args, **kwargs):
+        self.pk = 1
+        return super().save(*args, **kwargs)
+
+
+class BusinessHour(models.Model):
+    weekday = models.PositiveSmallIntegerField(unique=True)
+    is_open = models.BooleanField(default=True)
+    opens_at = models.TimeField(default="09:00")
+    closes_at = models.TimeField(default="23:00")
+
+    class Meta:
+        ordering = ["weekday"]
